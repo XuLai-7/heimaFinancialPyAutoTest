@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>黑马理财系统接口自动化test</title>
+    <meta name="generator" content="HTMLTestReport 0.0.1"/>
+    <link rel="stylesheet" href="http://unpkg.com/layui@2.6.8/dist/css/layui.css">
+    
+<style type="text/css">
+    .title { width: auto; height: 60px; text-align: center; font: bolder 38px/60px "Microsoft YaHei UI"; color: #009688; }
+    .summary span { font: normal 16px/38px "Microsoft YaHei UI"; margin-left: 20px; }
+    .success-btn { background-color: #28a745; }
+    .skip-btn { background-color: #84898c; }
+    .passClass  { background-color: #bdedbc; }
+    .failClass  { background-color: #ffefa4; }
+    .errorClass { background-color: #ffc9c9; }
+    .passCase   { color: #5cb85c; }
+    .skipCase   { color: #84898c; }
+    .failCase   { color: #FF6600; font-weight: bold; }
+    .errorCase  { color: #c00; font-weight: bold; }
+    .hiddenRow  { display: none; }
+    .testcase   { margin-left: 2em; }
+    .layui-table tbody tr:hover, .layui-table-click, .layui-table-header, .layui-table-hover, .layui-table-mend, .layui-table-patch, .layui-table-tool, .layui-table[lay-even] tr:nth-child(even) {
+        background-color: transparent;
+    }
+</style>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+</head>
+<body>
+    <script language="javascript" type="text/javascript"><!--
+    output_list = Array();
+    function showCase(level) {
+        trs = document.getElementsByTagName("tr");
+        for (var i = 0; i < trs.length; i++) {
+            tr = trs[i];
+            id = tr.id;
+            if (id.substr(0,2) == 'ft') {
+                if (level == 2 || level == 0) {
+                    tr.className = 'hiddenRow';
+                }
+                else {
+                    tr.className = '';
+                }
+            }
+            if (id.substr(0,2) == 'pt') {
+                if (level < 2) {
+                    tr.className = 'hiddenRow';
+                }
+                else {
+                    tr.className = '';
+                }
+            }
+        }      
+    }
+    function showClassDetail(cid, count) {
+        var id_list = Array(count);
+        var toHide = 1;
+        for (var i = 0; i < count; i++) {
+            tid0 = 't' + cid.substr(1) + '.' + (i+1);
+            tid = 'f' + tid0;
+            tr = document.getElementById(tid);
+            if (!tr) {
+                tid = 'p' + tid0;
+                tr = document.getElementById(tid);
+            }
+            id_list[i] = tid;
+            if (tr.className) {
+                toHide = 0;
+            }
+        }
+        for (var i = 0; i < count; i++) {
+            tid = id_list[i];
+            if (toHide) {
+                document.getElementById(tid).className = 'hiddenRow';
+            }
+            else {
+                document.getElementById(tid).className = '';
+            }
+        }
+    }
+    function showTestDetail(div_id){
+        var details_div = document.getElementById(div_id)
+        var displayState = details_div.style.display
+        if (displayState == 'block' || displayState == '' ) {
+            details_div.style.display = 'none'
+        }
+        else {
+            displayState = 'block'
+            details_div.style.display = 'block'
+        }
+    }
+    function html_escape(s) {
+        s = s.replace(/&/g,'&amp;');
+        s = s.replace(/</g,'&lt;');
+        s = s.replace(/>/g,'&gt;');
+        return s;
+    }
+    --></script>
+    <div class="layui-container">
+        
+    <!--报告标题-->
+    <div class="title">黑马理财系统接口自动化test</div>
+    
+    <!--汇总信息-->
+    <fieldset class="layui-elem-field summary">
+        <legend>测试结果汇总</legend>
+        <div class="layui-field-box">
+            <table class="layui-table">
+                <colgroup>
+                    <col width="50%">
+                    <col width="50%">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button type="button" class="layui-btn">开始时间</button>
+                            <span class="text-dark">2022-04-24 21:45:34</span>
+                        </td>
+                        <td>
+                            <button type="button" class="layui-btn">执行时间</button>
+                            <span class="text-dark">0:01:11.416594 s</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="layui-btn">用例总数</button>
+                            <span class="text-dark">27</span>
+                        </td>
+                        <td>
+                            <button type="button" class="layui-btn">通过率</button>
+                            <span class="text-dark">100.00%</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="button" class="layui-btn">描述信息</button>
+                            <span class="text-dark">python+requests+parameterized+beautifulSoup+pymysql</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <button type="button" class="layui-btn success-btn">成功用例：27</button>
+                            <button type="button" class="layui-btn layui-btn-warm">失败用例：0</button>
+                            <button type="button" class="layui-btn layui-btn-danger">错误用例：0</button>
+                            <button type="button" class="layui-btn skip-btn">跳过用例：0</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+    
+    <!--图表展示-->
+    <fieldset class="layui-elem-field summary">
+        <legend>图表展示</legend>
+        <div class="layui-field-box">
+            <div class="char">
+                <div id="chart1" style="width: 49%;height: 400px;float: left"></div>
+                <div id="chart2" style="width: 49%;height: 400px;float: left"></div>
+            </div>
+        </div>
+    </fieldset>
+
+        
+    <fieldset class="layui-elem-field summary">
+        <legend>详细信息</legend>
+        <div class="layui-field-box">
+            <table id='result_table' class="layui-table">
+            <thead>
+                <tr id='header_row' style='background-color: #009688; color: #fff'>
+                    <th>测试用例</th>
+                    <th>总数</th>
+                    <th>通过</th>
+                    <th>失败</th>
+                    <th>错误</th>
+                    <th>跳过</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+				<tbody>
+                
+    <tr class='passClass'>
+        <td class="text-center">test01_register_login.TestRegisterLogin</td>
+        <td class="text-center">15</td>
+        <td class="text-center">15</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c1',15)">详细</button></td>
+    </tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test01_img_code_0</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test01_img_code_1</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test01_img_code_2_</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test01_img_code_3_hellotest</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test02_phone_code_0</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test02_phone_code_1</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test03_register_0</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test03_register_1</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test03_register_2</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.10' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test03_register_3</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.11' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test04_login_0</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.12' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test04_login_1</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.13' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test04_login_2</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.14' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test05_login_status_0__</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt1.15' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test05_login_status_1__</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test02_identification_oaccount_recharge.TestIdentificationOaccount</td>
+        <td class="text-center">9</td>
+        <td class="text-center">9</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c2',9)">详细</button></td>
+    </tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test01_identification</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt2.1')">
+        通过</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt2.1' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt2.1: {'status': 200, 'data': {'card_id': '350****237', 'realname': '华**'}, 'description': '提交成功!'}
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test02_get_identification_status</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt2.2')">
+        通过</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt2.2' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt2.2: {'is_email_open': '-1', 'lastlogin_time': '1650807996', 'group_status': '', 'is_auth_user': '-1', 'is_realname_open': '2', 'is_corp': '-1', 'business_license': '', 'card_id': '350****237', 'realname': '华**', 'isCert': '2', 'realname_card': '1', 'pay_pwd': '', 'phone': '136****1111', 'realname_status': '-2', 'trustType': 'chinapnr', 'pwd': '1', 'email': '', 'is_trust': '-1'}
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test03_trust</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt2.3')">
+        通过</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt2.3' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt2.3: ('http://121.43.169.97:8000/muser/publicRequests', {'Version': '10', 'CmdId': 'UserRegister', 'MerCustId': '6000060007313892', 'BgRetUrl': 'https://www.baidu.com/', 'RetUrl': 'http://user-p2p-test.itheima.net/trust/chinapnr/register/return/22042421463678682875', 'UsrId': '', 'UsrName': '', 'IdType': '00', 'IdNo': '350102199003072237', 'UsrMp': '13600001111', 'UsrEmail': '', 'MerPriv': '22042421463678682875', 'ChkValue': '-101', 'CharSet': 'UTF-8'})
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test04_img_code_0</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test04_img_code_1</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt2.6' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test04_img_code_2_</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt2.7' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test04_img_code_3_hellotest</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt2.8' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test05_recharge_0</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt2.8')">
+        通过</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt2.8' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt2.8: {'status': 200, 'description': {'form': "&lt;form name='easypaysubmit' id='easypaysubmit' target='_blank' method='post' action='http://121.43.169.97:8000/muser/publicRequests'&gt;&lt;input name='Version' type='hidden' value='10'/&gt;&lt;input name='CmdId' type='hidden' value='NetSave'/&gt;&lt;input name='MerCustId' type='hidden' value='6000060007313892'/&gt;&lt;input name='UsrCustId' type='hidden' value='6020220424214636'/&gt;&lt;input name='OrdId' type='hidden' value='22042421463903305075'/&gt;&lt;input name='OrdDate' type='hidden' value='20220424'/&gt;&lt;input name='GateBusiId' type='hidden' value='B2C'/&gt;&lt;input name='OpenBankId' type='hidden' value=''/&gt;&lt;input name='DcFlag' type='hidden' value='D'/&gt;&lt;input name='TransAmt' type='hidden' value='1000.00'/&gt;&lt;input name='RetUrl' type='hidden' value='http://user-p2p-test.itheima.net/trust/chinapnr/recharge/return/22042421463903305075'/&gt;&lt;input name='BgRetUrl' type='hidden' value='https://www.baidu.com/'/&gt;&lt;input name='OpenAcctId' type='hidden' value=''/&gt;&lt;input name='CertId' type='hidden' value=''/&gt;&lt;input name='MerPriv' type='hidden' value='99275'/&gt;&lt;input name='ChkValue' type='hidden' value='-101'/&gt;&lt;input name='CharSet' type='hidden' value='UTF-8'/&gt;&lt;/form&gt;&lt;script&gt;document.forms['easypaysubmit'].submit();&lt;/script&gt;"}}
+('http://121.43.169.97:8000/muser/publicRequests', {'Version': '10', 'CmdId': 'NetSave', 'MerCustId': '6000060007313892', 'UsrCustId': '6020220424214636', 'OrdId': '22042421463903305075', 'OrdDate': '20220424', 'GateBusiId': 'B2C', 'OpenBankId': '', 'DcFlag': 'D', 'TransAmt': '1000.00', 'RetUrl': 'http://user-p2p-test.itheima.net/trust/chinapnr/recharge/return/22042421463903305075', 'BgRetUrl': 'https://www.baidu.com/', 'OpenAcctId': '', 'CertId': '', 'MerPriv': '99275', 'ChkValue': '-101', 'CharSet': 'UTF-8'})
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+<tr id='pt2.9' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test05_recharge_1</div></td>
+    <td>
+    <a onfocus='this.blur();' data-toggle="collapse" href="javascript:showTestDetail('div_pt2.9')">
+        通过</a>
+    </td>
+    <td colspan='5'>
+    <div id='div_pt2.9' class="collapse in">
+        <blockquote class="layui-elem-quote">
+            <pre>pt2.9: {'status': 100, 'description': '验证码错误'}
+</pre>
+        </blockquote>
+    </div>
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test03_tender.TestTender</td>
+        <td class="text-center">2</td>
+        <td class="text-center">2</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c3',2)">详细</button></td>
+    </tr>
+
+<tr id='pt3.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test01_tender_0</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+<tr id='pt3.2' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test01_tender_1_</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+    <tr class='passClass'>
+        <td class="text-center">test04_tender_list.TestTenderList</td>
+        <td class="text-center">1</td>
+        <td class="text-center">1</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center">0</td>
+        <td class="text-center"><button type="button" class="layui-btn layui-btn-xs" onclick="showClassDetail('c4',1)">详细</button></td>
+    </tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test01_tender_list</div></td>
+    <td>通过</td>
+    <td colspan='5' align='center' style="color:#428bca"></td>
+</tr>
+
+                </tbody>
+                <tr id='total_row' class="text-center active">
+                    <td align="right">总计</td>
+                    <td>27</td>
+                    <td>27</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+	</fieldset>
+
+        <a href="#">
+    <ul class="layui-fixbar"><li class="layui-icon layui-fixbar-top" lay-type="top" style="display: list-item;"></li></ul>
+    </a>
+    
+        
+    <script type="text/javascript">
+        // 初始化echarts实例
+        var myChart1 = echarts.init(document.getElementById('chart1'));
+        var myChart2 = echarts.init(document.getElementById('chart2'));
+        // 指定图表的配置项和数据
+        option1 = {
+            tooltip: {
+                formatter: '{a} <br/>{b} : {c}%'
+            },
+            toolbox: {
+                feature: {
+                    restore: {},
+                    saveAsImage: {}
+                }
+            },
+            series: [{
+                name: '测试结果',
+                type: 'gauge',
+                detail: {
+                    formatter: '100.00%'
+                },
+                data: [{
+                    value: '100.00',
+                    name: '用例通过率'
+                }],
+                axisLine: {
+                    lineStyle: {
+                        color: [
+                            [0.2, '#c20000'],
+                            [0.8, '#ddb518'],
+                            [1, '#00a10a']
+                        ]
+                    }
+                }
+            }]
+        };
+        option2 = {
+            color: ['#00a10a', '#ddb518', 'rgba(204,46,41,0.73)', '#85898c'],
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 10,
+                data: ['通过', '失败', '错误', '跳过']
+            },
+            series: [{
+                name: '测试结果',
+                type: 'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                        value: 27,
+                        name: '通过'
+                    },
+                    {
+                        value: 0,
+                        name: '失败'
+                    },
+                    {
+                        value: 0,
+                        name: '错误'
+                    },
+                    {
+                        value: 0,
+                        name: '跳过'
+                    }
+                ]
+            }]
+        };
+
+        myChart1.setOption(option1);
+        myChart2.setOption(option2);
+    </script>
+    
+    </div>
+</body>
+</html>

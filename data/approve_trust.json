@@ -1,0 +1,23 @@
+{
+  "img_code": [{
+      "desc": "获取图片验证码成功（随机小数）",
+      "random": 0.123,
+      "expect_result": 200
+    },{
+      "desc": "获取图片验证码成功（随机整数）",
+      "random": 123,
+      "expect_result": 200
+    },{
+      "desc": "获取图片验证码失败（随机数为空）",
+      "random": "",
+      "expect_result": 404
+    },{
+      "desc": "获取图片验证码失败（随机数为字符串）",
+      "random": "hellotest",
+      "expect_result": 400
+    }],
+  "recharge": [
+    {"desc": "后台充值响应成功", "valicode": 8888,"expect_result": "OK"},
+    {"desc": "后台充值响应成功", "valicode": 8889,"expect_result": "验证码错误"}
+  ]
+}
